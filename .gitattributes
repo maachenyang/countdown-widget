@@ -1,0 +1,11 @@
+# 统一换行符：仓库里文本一律 LF。
+# 批处理例外：cmd.exe 需要 CRLF，所以对 .bat 关闭换行转换，
+# 保证直接用 GitHub「Download ZIP」拿到的源码里 .bat 也是 CRLF。
+* text=auto eol=lf
+
+*.bat -text
+*.cmd -text
+
+*.png binary
+*.ico binary
+*.woff2 binary

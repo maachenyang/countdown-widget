@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "id": "i1",
+      "title": "考研初试",
+      "targetDate": "2026-12-19",
+      "startDate": "2026-09-01",
+      "accent": "#1C1C1E"
+    },
+    {
+      "id": "i2",
+      "title": "项目上线",
+      "targetDate": "2026-11-05",
+      "startDate": "2026-10-01",
+      "accent": "#0A84FF"
+    }
+  ],
+  "activeId": "i1",
+  "theme": "light",
+  "glass": "css",
+  "scale": 1,
+  "alwaysOnTop": false,
+  "openAtLogin": false,
+  "bounds": null
+}

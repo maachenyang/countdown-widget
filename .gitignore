@@ -1,0 +1,13 @@
+node_modules/
+dist/
+out/
+
+# 运行时生成（首次启动会自动创建）
+config.json
+.userdata/
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN" class="theme-light glass-css">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" />
+  <title>倒计时</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stage">
+    <section class="card" id="card">
+      <div class="grain" aria-hidden="true"></div>
+
+      <!-- ─────────── 主视图 ─────────── -->
+      <div class="page page-main" id="pageMain">
+        <header class="head">
+          <span class="label" id="label">倒计时</span>
+          <span class="status"><i class="dot" id="dot"></i><span id="statusText">进行中</span></span>
+        </header>
+
+        <div class="hero" id="hero">
+          <span class="num" id="days">--</span>
+          <span class="unit" id="unit">天</span>
+        </div>
+
+        <div class="rule"></div>
+
+        <footer class="foot">
+          <span class="date" id="dateText">--</span>
+          <span class="progress" id="progress">
+            <span class="bar"><i id="barFill"></i></span>
+            <span class="pct" id="pctText">--</span>
+          </span>
+        </footer>
+
+        <div class="dots" id="dots" hidden></div>
+      </div>
+
+      <!-- ─────────── 设置视图 ─────────── -->
+      <div class="page page-settings" id="pageSettings" hidden>
+        <header class="head">
+          <span class="label">设置</span>
+          <span class="status"><span class="hint">滚轮 / ← → 切换条目</span></span>
+        </header>
+
+        <div class="scroll" id="scrollArea">
+          <div class="section-title">倒计时条目</div>
+          <div class="item-list" id="itemList"></div>
+          <button class="add-row" id="btnAdd" type="button">＋ 添加倒计时</button>
+
+          <div class="section-title">外观</div>
+
+          <div class="field">
+            <span>主题</span>
+            <div class="seg" id="segTheme">
+              <button type="button" data-value="light">浅色</button>
+              <button type="button" data-value="dark">深色</button>
+              <button type="button" data-value="auto">跟随</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span>毛玻璃</span>
+            <div class="seg" id="segGlass">
+              <button type="button" data-value="css">标准</button>
+              <button type="button" data-value="acrylic">亚克力</button>
+              <button type="button" data-value="solid">不透明</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span>尺寸</span>
+            <div class="seg" id="segScale">
+              <button type="button" data-value="85">小</button>
+              <button type="button" data-value="100">标准</button>
+              <button type="button" data-value="125">大</button>
+              <button type="button" data-value="150">特大</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span>置顶显示</span>
+            <button class="switch" id="swTop" type="button" role="switch" aria-checked="false"><i></i></button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="btnDone" type="button">完成</button>
+        </div>
+      </div>
+
+      <!-- ─────────── 条目编辑 ─────────── -->
+      <div class="page page-editor" id="pageEditor" hidden>
+        <header class="head">
+          <span class="label" id="editorTitle">编辑倒计时</span>
+          <span class="status"><span class="hint">Esc 返回</span></span>
+        </header>
+
+        <div class="fields">
+          <label class="field">
+            <span>名称</span>
+            <input class="input" id="fTitle" type="text" maxlength="24" placeholder="例如 考研初试" />
+          </label>
+          <label class="field">
+            <span>目标日期</span>
+            <input class="input" id="fTarget" type="date" />
+          </label>
+          <label class="field">
+            <span>起始日期</span>
+            <input class="input" id="fStart" type="date" />
+          </label>
+
+          <div class="field">
+            <span>强调色</span>
+            <div class="swatches" id="swatches"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn danger" id="btnDelete" type="button">删除</button>
+          <span class="spacer"></span>
+          <button class="btn ghost" id="btnCancelEdit" type="button">取消</button>
+          <button class="btn primary" id="btnSaveItem" type="button">保存</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Self check
+        run: npm run verify
+
+      - name: Build (portable + unpacked)
+        run: npm run dist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pack unpacked build
+        shell: pwsh
+        run: |
+          Compress-Archive -Path dist/win-unpacked/* -DestinationPath "dist/Countdown-${{ github.ref_name }}-win-x64.zip" -Force
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*-portable.exe
+            dist/*-win-x64.zip
+          generate_release_notes: true
+          fail_on_unmatched_files: false

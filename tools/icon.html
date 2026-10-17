@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>icon</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 用 vmin 做单位：窗口多大，图形都等比缩放 */
+    .card {
+      position: absolute;
+      inset: 0;
+      border-radius: 22vmin;
+      background: linear-gradient(160deg, #ffffff 0%, #fbfbfd 58%, #f1f1f4 100%);
+      box-shadow: inset 0 0 0 0.6vmin rgba(0, 0, 0, 0.055);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .glyph {
+      font-family: 'InterVar', 'Segoe UI', 'DengXian', 'Microsoft YaHei', system-ui, sans-serif;
+      font-size: 58vmin;
+      line-height: 1;
+      font-weight: 400;
+      color: #1c1c1e;
+      letter-spacing: -0.01em;
+      /* 汉字视觉重心偏下，往上推一点才"看着"居中 */
+      transform: translateY(-2.4vmin);
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><span class="glyph">考</span></div>
+</body>
+</html>
