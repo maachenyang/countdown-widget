@@ -26,7 +26,7 @@
 
 ## 下载
 
-到 [Releases](../../releases) 取最新构建：
+到 [Releases](https://github.com/maachenyang/countdown-widget/releases) 取最新构建：
 
 | 文件 | 说明 |
 | --- | --- |

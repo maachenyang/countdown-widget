@@ -26,7 +26,7 @@ A minimal countdown widget that sits on your Windows desktop. Frosted glass card
 
 ## Download
 
-Grab the latest build from [Releases](../../releases):
+Grab the latest build from [Releases](https://github.com/maachenyang/countdown-widget/releases):
 
 | File | Notes |
 | --- | --- |
